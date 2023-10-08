@@ -1,0 +1,93 @@
+<br><br><br>
+<div class="container">
+<form [formGroup]="addCustomerForm" (ngSubmit)="addCustomer()">
+    <br>
+    <div class="row">
+      <div class="col col-md-4 col-sm-12 ">
+      <mat-form-field >
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="fullName" placeholder="Enter Your Full Name">
+      </mat-form-field>
+      </div>
+      <br>
+      <div class="col col-md-4 col-sm-6 col-xs-12 ">
+      <mat-form-field >
+        <mat-label>nickName</mat-label>
+        <input matInput formControlName="nickName" >
+      </mat-form-field>
+      </div>
+      <div class="col col-md-4 col-sm-6 col-xs-12 ">
+      <mat-form-field class=" col-md-12 col-sm-12 ">
+        <mat-label>nationalId</mat-label>
+        <input matInput formControlName="nationalId" >
+      </mat-form-field >
+      <div *ngIf="nationalId?.touched&&nationalId?.invalid">
+        <small class="text-danger" *ngIf="nationalId?.errors?.['required']">The National Id is required</small>
+        <br>
+        <small class="text-danger" *ngIf="nationalId?.errors?.['minlength']">The National Id must 14 numbers</small>
+        <br>
+        <small class="text-danger" *ngIf="nationalId?.errors?.['pattern']">The National Id must numbers</small>
+        </div>
+      </div>
+      
+      </div>
+
+      <div class="row">
+        <div class="col col-md-6 col-sm-6 col-xs-12 ">
+      <mat-form-field >
+        <mat-label>primaryPhoneNo</mat-label>
+        <span matPrefix>+20 &nbsp;</span>
+        <input type="tel" matInput placeholder="555-555-1234" formControlName="primaryPhoneNo" >
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+      <div *ngIf="primaryPhoneNo?.touched&&primaryPhoneNo?.invalid">
+        <small class="text-danger" *ngIf="primaryPhoneNo?.errors?.['required']">The primaryPhoneNo is required</small>
+        <br>
+        <small class="text-danger" *ngIf="primaryPhoneNo?.errors?.['minlength']" >The primaryPhoneNo's length must is 10</small>
+        <br>
+        <small class="text-danger" *ngIf="primaryPhoneNo?.errors?.['pattern']">The primaryPhoneNo must numbers</small>
+        </div>
+      </div>
+      <div class="col col-md-6 col-sm-6 col-xs-12 ">
+      <mat-form-field class="col col-md-6 col-sm-12 ">
+        <mat-label>secondaryPhoneNo</mat-label>
+        <span matPrefix>+20 &nbsp;</span>
+        <input type="tel" matInput placeholder="555-555-1234" formControlName="secondaryPhoneNo">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+      <div *ngIf="secondaryPhoneNo?.touched&&secondaryPhoneNo?.invalid">
+        <small class="text-danger" *ngIf="secondaryPhoneNo?.errors?.['required']">The secondaryPhoneNo is required</small>
+        <br>
+        <small class="text-danger" *ngIf="secondaryPhoneNo?.errors?.['minlength']" >The secondaryPhoneNo's length must is 10</small>
+        <br>
+        <small class="text-danger" *ngIf="secondaryPhoneNo?.errors?.['pattern']">The secondaryPhoneNo must numbers</small>
+        </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col col-md-4 col-sm-6 col-xs-12 ">
+      <mat-form-field>
+        <mat-label>address</mat-label>
+        <input matInput formControlName="address" >
+      </mat-form-field>
+      </div>
+      <div class="col col-md-4 col-sm-6 col-xs-12 ">
+      <mat-form-field>
+        <mat-label>customerCode</mat-label>
+        <input matInput formControlName="customerCode" >
+      </mat-form-field>
+      </div>
+      <div class="col col-md-4 col-sm-6 col-xs-12 ">
+      <mat-form-field>
+        <mat-label>trustReceiptNo</mat-label>
+        <input matInput formControlName="trustReceiptNo" >
+      </mat-form-field>
+      </div>
+      </div>
+      <br>
+      <div class="btn-submit">
+      <button mat-raised-button type="submit" color="accent" [disabled]="addCustomerForm.invalid">Add</button>
+   </div>
+      </form>
+  </div>
+  
