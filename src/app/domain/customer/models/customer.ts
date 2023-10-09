@@ -1,5 +1,5 @@
 export interface ICustomer{
-    id: number,
+  id: number,
   version: number,
   fullName: string,
   nickName: string,
